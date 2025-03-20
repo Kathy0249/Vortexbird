@@ -48,5 +48,21 @@ describe('Test Cases APIs ', () => {
    
   });
 
+  it('Test Case 5: non-Existent Post (GET/posts/9999)', () => { 
+   cy.request({
+    method: 'GET',
+    url: '/posts/9999',
+    failOnStatusCode: false
+   }).then((response) => {
+    console.log('Response:', response);
+    expect(response.status).to.eq(404);
+    expect(response.body).to.be.empty;
+
+   });
+
+
+  });
+
+
 
 });
